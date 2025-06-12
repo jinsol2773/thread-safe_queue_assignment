@@ -1,6 +1,8 @@
 #include <iostream>
 #include "queue.h"
+#include <mutex> 
 
+std::mutex mtx;
 
 Queue* init(void) {
     Queue* queue = new Queue;
@@ -37,9 +39,22 @@ Node* nclone(Node* node) {
 
 
 Reply enqueue(Queue* queue, Item item) {
-	Reply reply = { false, NULL };
-	return reply;
+    std::lock_guard<std::mutex> lock(mtx);  
+    Reply reply = { false, item };
+
+    Node* new_node = nalloc(item);
+    if (queue->tail == nullptr) {
+        queue->head = queue->tail = new_node;
+    }
+    else {
+        queue->tail->next = new_node;
+        queue->tail = new_node;
+    }
+
+    reply.success = true;
+    return reply;
 }
+
 
 Reply dequeue(Queue* queue) {
 	Reply reply = { false, NULL };
