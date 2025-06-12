@@ -3,28 +3,36 @@
 
 
 Queue* init(void) {
-	return NULL;
+    Queue* queue = new Queue;
+    queue->head = nullptr;
+    queue->tail = nullptr;
+    return queue;
 }
-
 
 void release(Queue* queue) {
-	return;
+    Node* current = queue->head;
+    while (current != nullptr) {
+        Node* temp = current;
+        current = current->next;
+        delete temp;
+    }
+    delete queue;
 }
 
-
 Node* nalloc(Item item) {
-	// Node 생성, item으로 초기화
-	return NULL;
+    Node* node = new Node;
+    node->item = item;
+    node->next = nullptr;
+    return node;
 }
 
 
 void nfree(Node* node) {
-	return;
+    delete node;
 }
 
-
 Node* nclone(Node* node) {
-	return NULL;
+    return nalloc(node->item);
 }
 
 
