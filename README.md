@@ -9,5 +9,4 @@
 - nalloc, nfree, nclone 기능 구현
 - std::mutex를 사용한 thread-safe enqueue, dequeue 구현
 - range 함수 구현
-
-- qtype.h 수정 및 queue.cpp의 모든 함수 구현을 통해 정상 동작을 확인함. 
+#### qtype.h 수정 및 queue.cpp의 모든 함수 구현을 통해 정상 동작을 확인함. 
