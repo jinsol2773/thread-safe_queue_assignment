@@ -10,3 +10,4 @@
 - std::mutex를 사용한 thread-safe enqueue, dequeue 구현
 - range 함수 구현
 #### qtype.h 수정 및 queue.cpp의 모든 함수 구현을 통해 정상 동작을 확인함. 
+#### 추가로 올라온 공지에 적힌 내용을 구현하지 못함. (깊은 복사 등 추가 사항)
